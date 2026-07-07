@@ -1,20 +1,12 @@
-import { useEffect, useState } from "react"
+import { useState, useContext } from "react"
 import { getMovies } from "../Services/Api"
+import { movieContext } from "../App"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
 function HeroSection() {
   const [active, setActive] = useState(0)
-  const [movies, setMovies] = useState([])
-
-  useEffect(() => {
-    const fetchMovies = async () => {
-      const data = await getMovies()
-      setMovies(data)
-    }
-
-    fetchMovies()
-  }, [])
+  const { movies } = useContext(movieContext)
 
   const sliderMovies = movies.slice(20, 30)
   const activeMovie = sliderMovies[active]
@@ -27,7 +19,7 @@ function HeroSection() {
   }
 
   return (
-    <div className="relative h-150 overflow-hidden ">
+    <div className="relative h-163 overflow-hidden ">
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" >
         <AnimatePresence mode="sync">
           {activeMovie && (
@@ -54,10 +46,10 @@ function HeroSection() {
           {sliderMovies.map((movie, index) => {
             let offset = index - active
             if (offset > 5) {
-              offset -= total;
+              offset -= 10
             }
             if (offset < -5) {
-              offset += total;
+              offset += 10
             }
 
             return (

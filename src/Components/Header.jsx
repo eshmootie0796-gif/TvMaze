@@ -1,15 +1,14 @@
-import { MoonStar, Sun, Heart, Film, Clock, Home } from "lucide-react"
+import { MoonStar, Sun, Heart, Film, Clock, Home, Search } from "lucide-react"
 import { useContext } from "react"
 import { movieContext } from "../App"
 import { Tabs, TabsList, TabsTrigger } from "../Components/ui/tabs"
 
-
 function Header() {
-    const { setIsDark, isDark } = useContext(movieContext)
+    const { setIsDark, isDark,user } = useContext(movieContext)
 
     const toggleTheme = () => {
-    setIsDark(prev => !prev)
-  }
+        setIsDark(prev => !prev)
+    }
 
     return (
         <div className="p-6 flex gap-10 items-center justify-between max-h-20">
@@ -40,24 +39,34 @@ function Header() {
                         <TabsList className="h-11 p-1 bg-white border border-gray-200 rounded-full shadow-sm gap-1 dark:bg-white dark:bord">
                             <TabsTrigger
                                 value="Home"
-                                className="flex gap-2 items-center rounded-full px-5 py-2 text-sm font-medium transition-all data-[state=active]:text-white dark:data-[state=active]:bg-black dark:data-[state=active]:text-white shadow-none data-[state=active]:shadow-none">
+                                className="flex gap-2 items-center rounded-full px-5 py-2 text-sm font-medium transition-all cursor-pointer duration-500 data-[state=active]:text-white dark:data-[state=active]:bg-black dark:data-[state=active]:text-white shadow-none data-[state=active]:shadow-none">
                                 <Home size={16} />
                                 Home
                             </TabsTrigger>
                             <TabsTrigger
                                 value="Recently Watched"
-                                className="flex gap-2 items-center rounded-full px-5 py-2 text-sm font-medium transition-all data-[state=active]:text-white dark:data-[state=active]:bg-black dark:data-[state=active]:text-white shadow-none data-[state=active]:shadow-none">
+                                className="flex gap-2 items-center rounded-full px-5 py-2 text-sm font-medium transition-all cursor-pointer duration-500 data-[state=active]:text-white dark:data-[state=active]:bg-black dark:data-[state=active]:text-white shadow-none data-[state=active]:shadow-none">
                                 <Clock size={16} />
                                 Recents
                             </TabsTrigger>
                             <TabsTrigger
                                 value="Favorites"
-                                className="flex gap-2 items-center rounded-full px-5 py-2 text-sm font-medium transition-all data-[state=active]:text-white dark:data-[state=active]:bg-black dark:data-[state=active]:text-white shadow-none data-[state=active]:shadow-none">
+                                className="flex gap-2 items-center rounded-full px-5 py-2 text-sm font-medium transition-all duration-500 cursor-pointer data-[state=active]:text-white dark:data-[state=active]:bg-black dark:data-[state=active]:text-white shadow-none data-[state=active]:shadow-none">
                                 <Heart size={16} />
                                 Favorites
                             </TabsTrigger>
                         </TabsList>
                     </Tabs>
+                </div>
+            </div>
+            <div className="flex justify-center items-center gap-8">
+                <Search className="text-gray-500 cursor-pointer"/>
+                <div className="flex gap-2">
+                        <img src={user.pfp} alt="" className="w-12 h-12 rounded-full cursor-pointer"/>
+                    <div>
+                        <p className="text-[20px]">{user.username}</p>
+                        <p className="-mt-2 text-gray-700 text-[14px]">{user.role}</p>
+                    </div>
                 </div>
             </div>
         </div>

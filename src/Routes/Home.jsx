@@ -1,12 +1,13 @@
-import Header from "@/Components/Header";
-import HeroSection from "@/Components/HeroSection";
+import GenresSlider from "../Components/GenresSlider"
+import HeroSection from "../Components/HeroSection"
 
 function Home(){
     return(
         <div>
-            <Header></Header>
             <HeroSection></HeroSection>
+            <GenresSlider></GenresSlider>
         </div>
+        
     )
 }
 
