@@ -3,7 +3,7 @@ import { Star } from "lucide-react"
 function Card({ movie }) {
     return (
         <div className="group flex flex-col gap-3 h-full cursor-pointer">
-            <div className="overflow-hidden rounded-2xl bg-gray-100 aspect-[2/3] relative shadow-sm group-hover:shadow-md transition-all duration-300">
+            <div className="overflow-hidden rounded-2xl bg-gray-100 aspect-2/3 relative shadow-sm group-hover:shadow-md transition-all duration-300">
                 <img 
                     src={movie.image?.medium || movie.image?.original} 
                     alt={movie.name} 
