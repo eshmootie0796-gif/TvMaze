@@ -5,11 +5,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "./ui/carousel";
-import { movieContext } from "../App";
+
 import { useContext } from "react";
 import Card from "./Card";
 import { Link } from "react-router";
-
+import { movieContext } from "../features/context";
 function HighRatedSlider() {
   const { topMovies } = useContext(movieContext);
 
