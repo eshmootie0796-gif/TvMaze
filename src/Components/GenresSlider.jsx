@@ -1,6 +1,6 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel"
 import { Genres } from "../Services/Genres"
-import { movieContext } from "../App"
+import { movieContext } from "../features/context"
 import Card from "./Card.jsx"
 import { useState, useEffect, useContext } from "react"
 import { Link } from "react-router"
@@ -24,8 +24,8 @@ function GenresSlider() {
     return (
         <div className="mt-15 relative px-4 sm:px-8 md:px-16 w-full select-none mx-auto">
             <div className="flex justify-between">
-                <h1 className="text-5xl font-bold mb-6">Genres</h1>
-                <Link to="/ShowGenre" className="mt-5 text-[#4C3E86] hover:text-[#8864FE]">View All {selectedGenre} Series</Link>
+                <h1 className="text-5xl font-bold mb-6 dark:text-white">Genres</h1>
+                <Link to="/ShowGenre" className="mt-5 text-[#4C3E86] hover:text-[#8864FE] dark:text-[#8864FE]">View All {selectedGenre} Series</Link>
             </div>
             <Carousel className="w-full relative flex justify-between gap-10" opts={{ align: "start" }}>
                 <CarouselContent className="-ml-4 py-2">
@@ -33,7 +33,7 @@ function GenresSlider() {
                         const isActive = selectedGenre === Genre.label
                         return (
                             <CarouselItem key={Genre.label} className="basis-auto pl-4" onClick={() => setSelectedGenre(Genre.label)}>
-                                <div className={`flex items-center justify-center gap-2 py-2.5 px-5 rounded-lg cursor-pointer transition-all duration-300 ${isActive ? 'bg-gradient-to-r from-[#4C3E86] to-[#8864FE] text-white' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'}`}>
+                                <div className={`flex items-center justify-center gap-2 py-2.5 px-5 rounded-lg cursor-pointer transition-all duration-300 ${isActive ? 'bg-gradient-to-r from-[#4C3E86] to-[#8864FE] text-white' : 'bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700'}`}>
                                     <Genre.icon size={18} className={isActive ? "text-white" : "text-gray-500"} />
                                     <span className="text-sm font-medium">{Genre.label}</span>
                                 </div>

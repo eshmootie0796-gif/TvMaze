@@ -1,6 +1,20 @@
 @import "tailwindcss";
 
-body{
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  background-color: #F3F3F3;
+@custom-variant dark (&:where(.dark, .dark *));
+
+body {
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-color: #f3f3f3;
+  color: #18181b;
+  cursor:
+    url("https://cdn.cursors-4u.net/previews/appstarting-3b6fae7c-preview-50.webp")
+      0 0,
+    auto !important;
+}
+
+.dark body {
+  background-color: #09090b;
+  color: #fafafa;
 }

@@ -1,6 +1,6 @@
 import { useState, useContext } from "react"
 import { getMovies } from "../Services/Api"
-import { movieContext } from "../App"
+import { movieContext } from "../features/context"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
@@ -56,7 +56,7 @@ function HeroSection() {
               <motion.img
                 key={movie.id}
                 src={movie.image.medium}
-                alt={movie.title}
+                alt={movie.name}
                 className="absolute w-64 rounded-2xl shadow-2xl cursor-pointer"
                 animate={{ x: offset * 250, scale: offset === 0 ? 1 : 0.8, rotateY: offset * 20, opacity: Math.abs(offset) > 2 ? 0 : 1, zIndex: 100 - Math.abs(offset) }}
                 transition={{ type: "spring", stiffness: 250, damping: 30 }}

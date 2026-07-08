@@ -1,7 +1,7 @@
 import { useContext, useState,useEffect } from "react"
 import Card from "../Components/Card"
 import useInfiniteScroll from "../Hooks/useInfiniteScroll"
-import { movieContext } from "../App"
+import { movieContext } from "../features/context"
 
 function ShowGenre() {
     const { movies, selectedGenre,loading, loadMovies } = useContext(movieContext)
@@ -12,7 +12,7 @@ function ShowGenre() {
     }, [selectedGenre])
 
      const filteredGenre = movies.filter(movie => {
-        return movie.genres.includes(selectedGenre)
+        return movie.genres?.includes(selectedGenre)
     })
 
     useInfiniteScroll(() => {

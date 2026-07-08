@@ -1,4 +1,4 @@
-import { movieContext } from "../App";
+import { movieContext } from "../features/context";
 import { useContext } from "react";
 
 function HighRatedMovies() {
