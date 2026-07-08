@@ -1,13 +1,15 @@
 import GenresSlider from "../Components/GenresSlider";
 import HeroSection from "../Components/HeroSection";
+import HighRatedSlider from "../Components/HighRatedSlider";
 import AboutSite from "../Components/AboutSite";
 
 function Home() {
   return (
     <div>
-      <HeroSection></HeroSection>
+      <HeroSection />
       <AboutSite />
-      <GenresSlider></GenresSlider>
+      <GenresSlider />
+      <HighRatedSlider />
     </div>
   );
 }
