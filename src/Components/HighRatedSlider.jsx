@@ -9,7 +9,7 @@ function HighRatedSlider() {
 
     return (
         <div className="mt-15 relative px-4 sm:px-8 md:px-16 w-full select-none mx-auto">
-           <div className="flex justify-between">
+           <div className="flex gap-100">
                 <h1 className="text-5xl font-bold mb-6">Bests</h1>
                 <Link to="/ShowHighRated" className="mt-5 text-[#4C3E86] hover:text-[#8864FE]">View top 100 Series</Link>
             </div>
